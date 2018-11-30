@@ -23,6 +23,35 @@ io = SocketIO(app)
 model = 'undefined'
 
 
+IMG_HEIGHT = 320
+IMG_WIDTH = 256
+CROP_WIDTH = 8
+
+def img_transform(p=1):
+  return Compose([
+      Normalize(p=1)
+  ], p=p)
+
+def cuda(x):
+  return x.cuda(async=True) if torch.cuda.is_available() else x
+
+def get_model(model_path, model_type='UNet1024'):
+
+  input_img_resize = (IMG_HEIGHT, IMG_WIDTH)
+  model = UNet1024((3, *input_img_resize))
+
+  state = torch.load(str(model_path))
+  state = {key.replace('module.', ''): value for key, value in state['model'].items()}
+  model.load_state_dict(state)
+
+  if torch.cuda.is_available():
+    return model.cuda()
+
+  model.eval()
+
+  return model
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
