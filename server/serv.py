@@ -41,7 +41,10 @@ def get_model(model_path, model_type='UNet1024'):
   input_img_resize = (IMG_HEIGHT, IMG_WIDTH)
   model = UNet1024((3, *input_img_resize))
 
-  state = torch.load(str(model_path))
+  if torch.cuda.is_available():
+    state = torch.load(str(model_path))
+  else:
+    state = torch.load(str(model_path), 'cpu')
   state = {key.replace('module.', ''): value for key, value in state['model'].items()}
   model.load_state_dict(state)
 
