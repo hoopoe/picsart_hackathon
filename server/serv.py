@@ -77,10 +77,10 @@ def test(data):
     im.save(img_name)
 
     res = predict(model, img_name, img_transform=img_transform(p=1))
-    
+
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
     mask = (mask * 255).astype(np.uint8)
-    mask = t_mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+    mask = mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
     cv2.imwrite("mask.png", mask)
 
     draw = ImageDraw.Draw(im)
