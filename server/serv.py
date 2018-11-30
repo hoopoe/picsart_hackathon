@@ -16,7 +16,7 @@ import numpy as np
 from torchvision import transforms
 from albumentations import Compose, Normalize
 from torch.nn import functional as F
-from filters import blur_background
+from server.filters import blur_background
 
 from imageio import imread
 
@@ -59,7 +59,7 @@ def get_model(model_path, model_type='UNet1024'):
   return model
 
 def predict(model, input_image, img_transform):
-  orig_img = cv2.imread(str(input_image)) #320x240
+  orig_img = input_image #cv2.imread(str(input_image)) #320x240
   img = cv2.copyMakeBorder(orig_img,0,0,CROP_WIDTH,CROP_WIDTH,cv2.BORDER_CONSTANT,value=(0,0,0))
   img = np.rollaxis(img, 2, 0) 
   img = torch.tensor(img)
