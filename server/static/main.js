@@ -1,4 +1,4 @@
-const socket = io('http://hoopoe.asuscomm.com:8081/')
+const socket = io()
 const button = document.querySelector('button')
 const inp = document.querySelector('input')
 const img = document.querySelector('img')

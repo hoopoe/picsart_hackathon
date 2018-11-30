@@ -18,6 +18,8 @@ from albumentations import Compose, Normalize
 from torch.nn import functional as F
 from filters import blur_background
 
+from imageio import imread
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 io = SocketIO(app)
@@ -77,32 +79,14 @@ def index():
 @io.on('test_img_upload')
 def test(data):
     # print(data['data'][23:])
-    im = Image.open(BytesIO(base64.b64decode(data['data'][23:])))
-    img_name = 'test.jpg'
-    im.save(img_name)
-
-    res = predict(model, img_name, img_transform=img_transform(p=1))
-
+    im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
+    res = predict(model, im, img_transform=img_transform(p=1))
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
     mask = (mask * 255).astype(np.uint8)
     mask = mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
-
     blur_background(None, mask)
-
-    cv2.imwrite("mask.png", mask)
-
-    draw = ImageDraw.Draw(im)
-    draw.line((0, 0) + im.size, fill=128)
-    draw.line((0, im.size[1], im.size[0], 0), fill=128)
-
-    del draw
-    #buffered = BytesIO()
-    im = cv2.imread('mask.png')
-    #im.save(buffered, format="jpeg")
-    _, buf = cv2.imencode('.png', im)
+    _, buf = cv2.imencode('.png', mask)
     png_as_text = base64.b64encode(buf)
-    #img_str = base64.b64encode(buffered.getvalue())
-    # print(img_str.decode('utf-8'))
     emit('resp', {'data': png_as_text})
 
 
