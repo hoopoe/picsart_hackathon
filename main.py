@@ -55,7 +55,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   fold = 0
-  model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=args.fold))),
+  model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))),
     model_type=args.model_type)
 
   predict(model, args.input_image, img_transform=img_transform(p=1))
