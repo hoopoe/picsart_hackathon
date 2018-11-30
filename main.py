@@ -6,10 +6,17 @@ import torch
 from pathlib import Path
 from tqdm import tqdm
 import numpy as np
-import pandas as pd
+# import pandas as pd
+from torchvision import transforms
+from albumentations import Compose, Normalize
 
 IMG_HEIGHT = 320
 IMG_WIDTH = 256
+
+def img_transform(p=1):
+  return Compose([
+      Normalize(p=1)
+  ], p=p)
 
 def cuda(x):
   return x.cuda(async=True) if torch.cuda.is_available() else x
@@ -32,8 +39,10 @@ def get_model(model_path, model_type='UNet1024'):
 
 def predict(model, input_image, img_transform):
   img = cv2.imread(str(input_image))
+  tr = transforms.ToTensor()
+  t_img = tr(img)
   with torch.no_grad():
-    inputs = utils.cuda(img)
+    inputs = cuda(t_img)
     outputs = model(inputs)
     print(outputs.shape)
             
