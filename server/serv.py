@@ -16,6 +16,7 @@ import numpy as np
 from torchvision import transforms
 from albumentations import Compose, Normalize
 from torch.nn import functional as F
+from filters import blur_background
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -85,6 +86,9 @@ def test(data):
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
     mask = (mask * 255).astype(np.uint8)
     mask = mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+
+    blur_background(None, mask)
+
     cv2.imwrite("mask.png", mask)
 
     draw = ImageDraw.Draw(im)
