@@ -66,6 +66,6 @@ if __name__ == '__main__':
   mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
   mask = (mask * 255).astype(np.uint8)
 
-  cv2.imwrite("mask.png", mask0)
+  cv2.imwrite("mask.png", mask)
 
 
