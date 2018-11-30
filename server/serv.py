@@ -73,6 +73,7 @@ def index():
 def test(data):
     # print(data['data'][23:])
     im = Image.open(BytesIO(base64.b64decode(data['data'][23:])))
+    im.save('test.jpg')
     draw = ImageDraw.Draw(im)
     draw.line((0, 0) + im.size, fill=128)
     draw.line((0, im.size[1], im.size[0], 0), fill=128)
