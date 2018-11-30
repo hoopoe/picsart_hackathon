@@ -73,7 +73,16 @@ def index():
 def test(data):
     # print(data['data'][23:])
     im = Image.open(BytesIO(base64.b64decode(data['data'][23:])))
-    im.save('test.jpg')
+    img_name = 'test.jpg'
+    im.save(img_name)
+
+    res = predict(model, img_name, img_transform=img_transform(p=1))
+    
+    mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
+    mask = (mask * 255).astype(np.uint8)
+    mask = t_mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+    cv2.imwrite("mask.png", mask)
+
     draw = ImageDraw.Draw(im)
     draw.line((0, 0) + im.size, fill=128)
     draw.line((0, im.size[1], im.size[0], 0), fill=128)
@@ -99,8 +108,4 @@ if __name__ == '__main__':
 
     app.run(host='0.0.0.0', port='8081')
 
-    # res = predict(model, args.input_image, img_transform=img_transform(p=1))
-    # mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
-    # mask = (mask * 255).astype(np.uint8)
-    # mask = t_mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
-    # cv2.imwrite("mask.png", mask)
+
