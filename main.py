@@ -38,7 +38,8 @@ def get_model(model_path, model_type='UNet1024'):
   return model
 
 def predict(model, input_image, img_transform):
-  img = cv2.imread(str(input_image))
+  orig_img = cv2.imread(str(input_image)) #320x240
+  img = cv2.copyMakeBorder(orig_img,0,0,8,8,cv2.BORDER_CONSTANT,value=(0,0,0))
   img = np.rollaxis(img, 2, 0) 
   img = torch.tensor(img)
   img = img.float()
@@ -47,7 +48,6 @@ def predict(model, input_image, img_transform):
   with torch.no_grad():
    inputs = cuda(img)
    outputs = model(inputs)
-   print(outputs.shape)
    return outputs
             
 if __name__ == '__main__':
