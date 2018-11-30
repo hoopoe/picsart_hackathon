@@ -63,12 +63,9 @@ if __name__ == '__main__':
   model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))), model_type=args.model_type)
 
   res = predict(model, args.input_image, img_transform=img_transform(p=1))
-
   mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
   mask = (mask * 255).astype(np.uint8)
-
   mask = t_mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
-
   cv2.imwrite("mask.png", mask)
 
 
