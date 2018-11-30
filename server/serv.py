@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, emit
 from io import BytesIO
 import base64
 from PIL import Image, ImageDraw
+import cv2
 
 import os
 import argparse
@@ -88,11 +89,14 @@ def test(data):
     draw.line((0, im.size[1], im.size[0], 0), fill=128)
 
     del draw
-    buffered = BytesIO()
-    im.save(buffered, format="jpeg")
-    img_str = base64.b64encode(buffered.getvalue())
+    #buffered = BytesIO()
+    im = cv2.imread('mask.png')
+    #im.save(buffered, format="jpeg")
+    _, buf = cv2.imencode('.png', im)
+    png_as_text = base64.b64encode(buf)
+    #img_str = base64.b64encode(buffered.getvalue())
     # print(img_str.decode('utf-8'))
-    emit('resp', {'data': img_str})
+    emit('resp', {'data': png_as_text})
 
 
 if __name__ == '__main__':
