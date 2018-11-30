@@ -96,11 +96,12 @@ if __name__ == '__main__':
     arg('--model_path', type=str, default='runs/unet1024_aug', help='path to model folder')
     arg('--model_type', type=str, default='UNet1024', help='network architecture', choices=['UNet1024'])
     arg('--input_image', type=str, help='input image', default='test.jpg') #320x240
+    arg('--port', type=str, default='8081')
     args = parser.parse_args()
 
     fold = 0
     model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))), model_type=args.model_type)
 
-    app.run(host='0.0.0.0', port='8081')
+    app.run(host='0.0.0.0', port=args.port)
 
 
