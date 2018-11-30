@@ -4,6 +4,18 @@ from io import BytesIO
 import base64
 from PIL import Image, ImageDraw
 
+import os
+import argparse
+import cv2
+from models import UNet1024
+import torch
+from pathlib import Path
+from tqdm import tqdm
+import numpy as np
+from torchvision import transforms
+from albumentations import Compose, Normalize
+from torch.nn import functional as F
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 io = SocketIO(app)
@@ -31,4 +43,4 @@ def test(data):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port='8081')
