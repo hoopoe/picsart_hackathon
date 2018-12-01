@@ -17,6 +17,7 @@ from torchvision import transforms
 from albumentations import Compose, Normalize
 from torch.nn import functional as F
 from filters import blur_background
+from filters import change_back
 
 from imageio import imread
 import dlib
@@ -77,6 +78,37 @@ def predict(model, input_image, img_transform):
 def index():
     return render_template('index.html')
 
+@app.route('/background')
+def render_background():
+    return render_template('back.html')
+
+imgs = {}
+@io.on('back_img_upload')
+def back_img_acc(data):
+    im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
+    imgs['back'] = im
+
+@io.on('main_img_upload')
+def main_img_acc(data):
+    im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
+
+    if np.shape(im) != (320, 240, 3):
+        im = resize(im)
+    res = predict(model, im, img_transform=img_transform(p=1))
+    mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
+    # mask = (mask * 255).astype(np.uint8)
+    mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+    imgs['src'] = im
+    imgs['mask'] = mask
+
+@io.on('combine')
+def combine():
+    p = (300, 300)
+
+    res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
+    _, buf = cv2.imencode('.jpg', res)
+    img_as_text = base64.b64encode(buf)
+    emit('resp', {'data': img_as_text})
 
 @io.on('test_img_upload')
 def test(data):

@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+        <title>Test</title>
+    </head>
+    <body>
+        <input type='file' placeholder='main photo'/>
+        <input type='file' placeholder='background photo'/>
+        <button> combine </button>
+        <div> back </div>
+        <img id="back"/>
+
+        <div> front </div>
+        <img id="front">
+
+        <div> combo </div>
+        <img id='outImage'/>
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io-file-client.js') }}"> </script>
+        <script src="{{ url_for('static', filename='back.js') }}"> </script>
+    </body>
+</html>
