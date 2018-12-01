@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+        <title>Test</title>
+    </head>
+    <body>
+        <button> send pic </button>
+        <input type='file' />
+        <img id='outImage'/>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io-file-client.js') }}"> </script> 
+        <script src="{{ url_for('static', filename='main.js') }}"> </script>
+    </body>
+</html>

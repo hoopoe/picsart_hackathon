@@ -6,12 +6,13 @@ import torch
 from pathlib import Path
 from tqdm import tqdm
 import numpy as np
-# import pandas as pd
 from torchvision import transforms
 from albumentations import Compose, Normalize
+from torch.nn import functional as F
 
 IMG_HEIGHT = 320
 IMG_WIDTH = 256
+CROP_WIDTH = 8
 
 def img_transform(p=1):
   return Compose([
@@ -38,26 +39,33 @@ def get_model(model_path, model_type='UNet1024'):
   return model
 
 def predict(model, input_image, img_transform):
-  img = cv2.imread(str(input_image))
-  tr = transforms.ToTensor()
-  t_img = tr(img)
+  orig_img = cv2.imread(str(input_image)) #320x240
+  img = cv2.copyMakeBorder(orig_img,0,0,CROP_WIDTH,CROP_WIDTH,cv2.BORDER_CONSTANT,value=(0,0,0))
+  img = np.rollaxis(img, 2, 0) 
+  img = torch.tensor(img)
+  img = img.float()
+  img = img / 255
+  img = img.unsqueeze(0)
   with torch.no_grad():
-    inputs = cuda(t_img)
-    outputs = model(inputs)
-    print(outputs.shape)
+   inputs = cuda(img)
+   outputs = model(inputs)
+   return outputs
             
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   arg = parser.add_argument
   arg('--model_path', type=str, default='runs/unet1024_aug', help='path to model folder')
   arg('--model_type', type=str, default='UNet1024', help='network architecture', choices=['UNet1024'])
-  arg('--input_image', type=str, help='input image', default='test.png')
+  arg('--input_image', type=str, help='input image', default='test.jpg') #320x240
   args = parser.parse_args()
 
   fold = 0
-  model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))),
-    model_type=args.model_type)
+  model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))), model_type=args.model_type)
 
-  predict(model, args.input_image, img_transform=img_transform(p=1))
+  res = predict(model, args.input_image, img_transform=img_transform(p=1))
+  mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
+  mask = (mask * 255).astype(np.uint8)
+  mask = t_mask[0:0 + IMG_WIDTH, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+  cv2.imwrite("mask.png", mask)
 
 
