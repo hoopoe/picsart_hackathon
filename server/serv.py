@@ -79,9 +79,10 @@ def predict(model, input_image, img_transform):
 def index():
     return render_template('index.html')
 
-@app.route('/results/{path:path}')
-def send_file():
-    return send_from_directory('results', path)
+@app.route('/results/{path:filename}')
+def send_file(filename):
+    print('Processing: /results/' + filename)
+    return send_from_directory('results', filename)
 
 @app.route('/background')
 def render_background():
