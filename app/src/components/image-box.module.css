@@ -1,0 +1,46 @@
+/*
+Original Idea - https://codepen.io/ns_bob/pen/yNzoON
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+  display: flex;
+}
+
+.dropbox {
+  width: 480px;
+  height: 640px;
+  margin: auto;
+  /*display: inline-block;*/
+  color: #fff;
+  text-align: center;
+  line-height: 170px;
+  border: 4px dashed #fff;
+  border-radius: 12px;
+  background-color: rgba(62, 126, 190, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+.dropbox:hover {
+  width: 576px;
+  height: 768px;
+  line-height: 576px;
+  cursor: pointer;
+  background-color: rgba(62, 126, 190, 0.5);
+}
+
+.dropbox.dragover {
+  width: 576px;
+  height: 768px;
+  line-height: 170px;
+  cursor: pointer;
+}

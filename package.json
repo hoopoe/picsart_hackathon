@@ -1,0 +1,19 @@
+{
+  "name": "picsart_hackathon",
+  "version": "1.0.0",
+  "description": "picsart hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoopoe/picsart_hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoopoe/picsart_hackathon/issues"
+  },
+  "homepage": "https://github.com/hoopoe/picsart_hackathon#readme"
+}
