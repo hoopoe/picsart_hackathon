@@ -82,7 +82,7 @@ def test(data):
     im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
     res = predict(model, im, img_transform=img_transform(p=1))
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
-    mask = (mask * 255).astype(np.uint8)
+    # mask = (mask * 255).astype(np.uint8)
     mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
     filtered = blur_background(im, mask) #todo: return
     _, buf = cv2.imencode('.png', filtered)
