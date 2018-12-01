@@ -85,9 +85,9 @@ def test(data):
     # mask = (mask * 255).astype(np.uint8)
     mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
     filtered = blur_background(im, mask) #todo: return
-    _, buf = cv2.imencode('.png', filtered)
-    png_as_text = base64.b64encode(buf)
-    emit('resp', {'data': png_as_text})
+    _, buf = cv2.imencode('.jpg', filtered)
+    img_as_text = base64.b64encode(buf)
+    emit('resp', {'data': img_as_text})
 
 
 if __name__ == '__main__':
