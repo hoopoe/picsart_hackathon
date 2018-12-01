@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO, emit
 from io import BytesIO
 import base64
@@ -23,7 +23,8 @@ from imageio import imread
 import dlib
 from smart_resize import resize
 
-app = Flask(__name__)
+# set the project root directory as the static folder, you can set others.
+app = Flask(__name__, static_url_path='')
 app.config['SECRET_KEY'] = 'secret!'
 io = SocketIO(app)
 
@@ -78,6 +79,10 @@ def predict(model, input_image, img_transform):
 def index():
     return render_template('index.html')
 
+@app.route('/results/{path:path}')
+def send_file():
+    return send_from_directory('results', path)
+
 @app.route('/background')
 def render_background():
     return render_template('back.html')
@@ -106,9 +111,9 @@ def combine():
     p = (300, 300)
 
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
-    _, buf = cv2.imencode('.jpg', res)
-    img_as_text = base64.b64encode(buf)
-    emit('respCombine', {'data': img_as_text})
+    # _, buf = cv2.imencode('.jpg', res)
+    # img_as_text = base64.b64encode(buf)
+    emit('respCombine', {'data': 'clone_test.jpg'})
 
 @io.on('test_img_upload')
 def test(data):

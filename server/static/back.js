@@ -12,7 +12,22 @@ function ab2str(buf) {
 socket.on('respCombine', (data) => {
     console.log(data['data'])
     //console.log(ab2str(data['data']))
-    img.src="data:image/jpeg;base64,"+ab2str(data['data'])
+    //img.src="data:image/jpeg;base64,"+ab2str(data['data'])
+    if (data['data']) {
+        var path = 'results/' + data['data'];
+        console.log("image to update: " + path);
+
+        var new_image = new Image();
+        //set up the new image
+        new_image.id = "outImage";
+        new_image.src = path;           
+        // insert new image and remove old
+        img.parentNode.insertBefore(new_image,img);
+        img.parentNode.removeChild(img);
+    }
+    else {
+        console.log('failed to get new image');
+    }
 })
 
 back_inp.onchange = function (evt) {
