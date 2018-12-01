@@ -21,7 +21,7 @@ def change_back(src, dst, mask, p):
   mask = mask.astype(np.uint8)
   res = cv2.seamlessClone(src, dst, mask, p, cv2.NORMAL_CLONE)
   print('clone_test.jpg - saving')
-  cv2.imwrite('results/clone_test.jpg', res)
+  cv2.imwrite('static/results/clone_test.jpg', res)
   print('clone_test.jpg - saved')
 
   print(np.array(res))

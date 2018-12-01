@@ -10,11 +10,12 @@ function ab2str(buf) {
   }
 
 socket.on('respCombine', (data) => {
-    console.log(data['data'])
+    console.log('Message received: respCombine');
+    console.log(data['data']);
     //console.log(ab2str(data['data']))
     //img.src="data:image/jpeg;base64,"+ab2str(data['data'])
     if (data['data']) {
-        var path = 'results/' + data['data'];
+        var path = 'static/results/' + data['data'];
         console.log("image to update: " + path);
 
         var new_image = new Image();
@@ -28,7 +29,7 @@ socket.on('respCombine', (data) => {
     else {
         console.log('failed to get new image');
     }
-})
+});
 
 back_inp.onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,

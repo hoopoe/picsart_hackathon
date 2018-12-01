@@ -24,7 +24,7 @@ import dlib
 from smart_resize import resize
 
 # set the project root directory as the static folder, you can set others.
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 io = SocketIO(app)
 
@@ -77,12 +77,8 @@ def predict(model, input_image, img_transform):
 
 @app.route('/')
 def index():
+    print('Processing: /')
     return render_template('index.html')
-
-@app.route('/results/{path:filename}')
-def send_file(filename):
-    print('Processing: /results/' + filename)
-    return send_from_directory('results', filename)
 
 @app.route('/background')
 def render_background():
