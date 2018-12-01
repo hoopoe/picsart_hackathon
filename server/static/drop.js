@@ -43,7 +43,7 @@ function runUpload( file ) {
             $('imgPrime').el.src = _file.target.result;
             // $('imgPrime').el.style.display = 'inline';
 
-            //TODO:
+            //TODO: call socket here
             // socket.emit('test_img_upload', {'data': fr.result})
         } // END reader.onload()
     } // END test if file.type === image

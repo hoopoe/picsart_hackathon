@@ -13,19 +13,17 @@ var image, bitmap;
 
 
 function handleImgLoad(){
+    stage.clear();
     bitmap = new createjs.Bitmap(image);
-    stage.removeChild(bitmap);
-    stage.removeChild(drawingCanvas);
     stage.addChild(bitmap);
     stage.addChild(drawingCanvas);
 
     stage.update();
-
 }
 
 function updateImage() {
     image = document.getElementById("imgPrime");
-    image.onload = handleImgLoad();
+    image.onload = handleImgLoad;
 }
 
 function initDraw() {
@@ -36,7 +34,7 @@ function initDraw() {
 
     //check to see if we are running in a browser with touch support
     stage = new createjs.Stage(canvas);
-    stage.autoClear = true;
+    stage.autoClear = false;
     stage.enableDOMEvents(true);
 
     createjs.Touch.enable(stage);
@@ -82,6 +80,8 @@ function handleMouseMove(event) {
     oldMidPt.y = midPt.y;
 
     stage.update();
+
+    //TODO: call socket here
 }
 
 function handleMouseUp(event) {
