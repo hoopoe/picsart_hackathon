@@ -16,12 +16,15 @@ def blur_background(img, mask):
 def change_back(src, dst, mask, p):
   #print('test')
   print('clone_test.jpg - processing')
-  mask[mask < 0.8] = 0
-  mask[mask >= 0.8] = 255
+  mask[mask < 0.75] = 0
+  mask[mask >= 0.75] = 255
   mask = mask.astype(np.uint8)
   res = cv2.seamlessClone(src, dst, mask, p, cv2.NORMAL_CLONE)
   print('clone_test.jpg - saving')
-  cv2.imwrite('static/results/clone_test.jpg', res)
+  crop_coords = (max(p[0] - 120, 0), max(p[1] - 160, 0))
+  im_croped = res[crop_coords[1]:crop_coords[1] + 320, crop_coords[0]:crop_coords[0] + 240]
+
+  cv2.imwrite('static/results/clone_test.jpg', im_croped)
   print('clone_test.jpg - saved')
 
   print(np.array(res))
