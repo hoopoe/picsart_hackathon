@@ -1,3 +1,6 @@
+import numpy as np
+import cv2
+
 def blur_background(img, mask):
   mask[mask < 0.25] = 0
   mask[mask >= 0.25] = 1
