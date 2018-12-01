@@ -9,7 +9,7 @@ function ab2str(buf) {
     return String.fromCharCode.apply(null, new Uint8Array(buf));
   }
 
-socket.on('resp', (data) => {
+socket.on('respCombine', (data) => {
     console.log(data['data'])
     //console.log(ab2str(data['data']))
     img.src="data:image/jpeg;base64,"+ab2str(data['data'])

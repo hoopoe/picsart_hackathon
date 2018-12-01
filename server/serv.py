@@ -108,7 +108,7 @@ def combine():
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
     _, buf = cv2.imencode('.jpg', res)
     img_as_text = base64.b64encode(buf)
-    emit('resp', {'data': img_as_text})
+    emit('respCombine', {'data': img_as_text})
 
 @io.on('test_img_upload')
 def test(data):
