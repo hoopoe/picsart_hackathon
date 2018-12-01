@@ -1,3 +1,15 @@
-body{
-background:white;
+
+.error{ color: #B71C1C; }
+.userActions{
+    display: table-cell;
+    height: 150px;
+    width: 300px;
+    border-width: 4px;
+    border-style: dashed;
+    border-color: gray;
 }
+.userActions input{
+    width: 150px;
+    margin: auto;
+}
+.imgPrime{ display: none; }

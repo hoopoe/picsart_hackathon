@@ -2,13 +2,32 @@
     <head>
         <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
         <title>Test</title>
+        <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../static/draw.js"> </script>
+        <script src="../static/drop.js"> </script>
+        <script>
+            function init() {
+                initDrop();
+                initDraw();
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
-    <body>
-        <input type='file' />
-        <img id='outImage'/>
+    <body onload=init()>
+        <!--<button> send pic </button>-->
+        <!--<input type='file' />-->
+        <!--<img id='outImage'/>-->
 
         <script type="text/javascript" src="{{ url_for('static', filename='socket.io.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='socket.io-file-client.js') }}"> </script> 
         <script src="{{ url_for('static', filename='main.js') }}"> </script>
+
+        <div align="center" id="userActions" class="userActions">
+            <p>Drag &amp; Drop Image</p>
+            <input  type="file" id="fileUpload" />
+        </div>
+        <img align="center" id="imgPrime" style="display: none"/>
+        <canvas id="myCanvas" width="300" height="300"></canvas>
     </body>
 </html>
