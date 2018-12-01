@@ -10,7 +10,6 @@ def face_pos(im, upsample=1):
     return faces[0] if len(faces) > 0 else 0
 
 def resize(im):
-    cv2.imshow('orig', im)
     pos = face_pos(im, 1)
     if pos == 0:
         return im
@@ -23,11 +22,4 @@ def resize(im):
     face_center = (int((pos[1] + pos[3])/2), int((pos[2] + pos[0])/2))
     crop_coords = (max(face_center[0]-120, 0), max(face_center[1]-160,0))
     im_croped = im[crop_coords[1]:crop_coords[1]+320,crop_coords[0]:crop_coords[0]+240]
-    #cv2.imshow('crop',im_croped)
-    #cv2.waitKey(0)
     return im_croped
-
-im = cv2.imread('zuck.jpg')
-resize(im)
-print(resize(im))
-#print(resize(im))

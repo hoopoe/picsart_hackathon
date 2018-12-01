@@ -19,6 +19,8 @@ from torch.nn import functional as F
 from filters import blur_background
 
 from imageio import imread
+import dlib
+from smart_resize import resize
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -80,6 +82,9 @@ def index():
 def test(data):
     # print(data['data'][23:])
     im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
+
+    if np.shape(im) != (320, 240, 3):
+        im = resize(im)
     res = predict(model, im, img_transform=img_transform(p=1))
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
     # mask = (mask * 255).astype(np.uint8)
