@@ -16,7 +16,7 @@ import numpy as np
 from torchvision import transforms
 from albumentations import Compose, Normalize
 from torch.nn import functional as F
-from server.filters import blur_background
+from filters import blur_background
 
 from imageio import imread
 
