@@ -57,12 +57,12 @@
 
   function back_preset_emit(name) {
     console.log('Filter called: ' + name);
-    socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
+    socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'});
   }
 
   function back_blur_emit() {
     console.log('Filter called: blur');
-    socket.emit('test_img_upload', {'data': ''})
+    socket.emit('test_img_upload', {'data': ''});
   }
 
   // inp.onchange = function (evt) {
