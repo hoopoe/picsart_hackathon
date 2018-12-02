@@ -3,8 +3,8 @@
 
 .userActions{
     display: table-cell;
-    height: 150px;
-    width: 300px;
+    /*height: 150px;
+    width: 300px;*/
     border-width: 4px;
     border-style: dashed;
     border-color: gray;
@@ -16,6 +16,12 @@
 }
 
 /*.imgPrime{ display: none; }*/
+#imgPrime{ 
+	height: 320px;
+	width: 240px;
+	/*background: url('../img/download_image.jpg');*/
+	background-color: RGB(100, 100, 100)
+}
 
 /*==================================== STYLES ========================================*/
 
@@ -108,12 +114,12 @@ h1 b{
 
 #photo{
 	margin:0 auto;
-	width:500px;
-	height:500px;
+	width:240px;
+	/*height:500px;*/
 	text-align:center;
 	position:relative;
 }
-
+/*
 #photo:after{
 	content: 'Drop a photo here';
 	top: 150px;
@@ -127,25 +133,24 @@ h1 b{
 	width: 100%;
 	letter-spacing: 1px;
 	padding-top: 20px;
-}
+}*/
 
-#photo canvas{
+/*#photo canvas{
 	text-align:center;
 	display:inline-block;
 	border-radius: 15px;
 	border:8px solid rgba(0,0,0,0.25);
 	box-sizing: border-box;
-	/*position:absolute;*/
 	z-index:5;
 	top:50%;
 	left: 50%;
 	width: 240px;
 	height: 320px;
-}
+}*/
 
-#photo img{
-	/*opacity:0;*/
-}
+/*#photo img{
+	opacity:0;
+}*/
 
 
 /*----------------------------
