@@ -123,6 +123,7 @@ def combine():
       # mask = (mask * 255).astype(np.uint8)
       mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
       imgs['mask'] = mask
+      imgs['src'] = im
 
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
     # _, buf = cv2.imencode('.jpg', res)
