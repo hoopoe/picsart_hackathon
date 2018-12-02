@@ -1,4 +1,3 @@
-$(function() {
   const socket = io();
   
   // const button = document.querySelector('button')
@@ -7,6 +6,10 @@ $(function() {
 
   function ab2str(buf) {
     return String.fromCharCode.apply(null, new Uint8Array(buf));
+  }
+
+  function hello() {
+    console.log('main.js loaded');
   }
 
   socket.on("resp", data => {
@@ -39,6 +42,7 @@ $(function() {
   });
 
   function back_preset_emit(name) {
+    console.log('Filter called: ' + name);
     socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
   }
 
@@ -138,4 +142,3 @@ $(function() {
   // function hideDownload() {
   //   downloadImage.fadeOut();
   // }
-});
