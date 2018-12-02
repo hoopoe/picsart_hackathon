@@ -33,7 +33,8 @@
         <script>
             function init() {
                 initDrop();
-                initDraw();
+                //initDraw();
+                hello();
             }
         </script>
     </head>
@@ -42,8 +43,6 @@
         <div class="wrapper">
 
             <div id="photo">
-
-                
     
                 <!-- <img align="center" id="imgPrime" style="display: none"/> -->
                 <img align="center" id="imgPrime" />
@@ -79,5 +78,19 @@
 
         </div>
 
+        <script type="javascript">
+                $(document).ready(function() {
+                    function back_preset_emit(name) {
+                        socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'});
+                      } 
+        
+                    document.getElementById("bricks").addEventListener("click", function() {
+                        back_preset_emit('bricks');
+                    });
+                });
+            </script>
+
     </body>
+
+    
 </html>
