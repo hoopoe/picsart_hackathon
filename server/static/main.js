@@ -16,6 +16,10 @@ $(function() {
     updateImage();
   });
 
+    function back_preset_emit(name) {
+        socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
+    }
+
   // inp.onchange = function (evt) {
   //     var tgt = evt.target || window.event.srcElement,
   //         files = tgt.files;

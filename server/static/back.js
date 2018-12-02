@@ -4,6 +4,7 @@ const back_inp = inps[0]
 const main_inp = inps[1]
 const img = document.querySelector('#outImage')
 const btn = document.querySelector('button')
+const btn_def = document.querySelector("#def")
 
 function ab2str(buf) {
     return String.fromCharCode.apply(null, new Uint8Array(buf));
@@ -66,3 +67,8 @@ main_inp.onchange = function (evt) {
 btn.onclick = function() {
     socket.emit('combine')
 }
+
+btn_def.onclick = function() {
+    socket.emit('back_img_upload', {'data': '', 'src':'concrete.jpg'})
+}
+
