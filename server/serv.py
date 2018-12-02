@@ -115,7 +115,7 @@ def combine():
     p = (300, 300)
     print('Called: combine')
 
-    if imgs['mask'] == '':
+    if 'mask' not in imgs:
       print('Combine: no mask exists')
       im = imgs['src']
       res = predict(model, im, img_transform=img_transform(p=1))
