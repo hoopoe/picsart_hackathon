@@ -117,7 +117,7 @@ def combine():
 
     if 'mask' not in imgs:
       print('Combine: no mask exists')
-      im = imgs['src']
+      im = cv2.cvtColor(imread(BytesIO(base64.b64decode(imgs['src'][23:]))), cv2.COLOR_RGB2BGR)
       res = predict(model, im, img_transform=img_transform(p=1))
       mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
       # mask = (mask * 255).astype(np.uint8)
