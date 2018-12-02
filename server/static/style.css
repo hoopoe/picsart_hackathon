@@ -139,6 +139,8 @@ h1 b{
 	z-index:5;
 	top:50%;
 	left: 50%;
+	width: 240px;
+	height: 320px;
 }
 
 #photo img{
@@ -235,12 +237,13 @@ h1 b{
 
 /* The filters */
 
-#filters li #normal{ background-image:url('../static/img/filters/normal.jpg'); }
-#filters li #blur{	 background-image:url('../static/img/filters/blur.jpg'); }
-#filters li #bricks{ background-image:url('../static/img/filters/bricks.jpg'); }
-#filters li #wall{	 background-image:url('../static/img/filters/wall.jpg'); }
-#filters li #sky{	 background-image:url('../static/img/filters/sky.jpg'); }
-#filters li #grass{	 background-image:url('../static/img/filters/grass.jpg'); }
+#filters li #normal{     background-image:url('../static/img/filters/normal.jpg'); }
+#filters li #blur{	     background-image:url('../static/img/filters/blur.jpg'); }
+#filters li #bricks{     background-image:url('../static/img/filters/bricks.jpg'); }
+#filters li #wall{	     background-image:url('../static/img/filters/wall.jpg'); }
+#filters li #sky{	     background-image:url('../static/img/filters/sky.jpg'); }
+#filters li #grass{	     background-image:url('../static/img/filters/grass.jpg'); }
+#filters li #concrete{	 background-image:url('../static/img/filters/concrete.jpg'); }
 
 /* Custom scrollbars for webkit */
 
