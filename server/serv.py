@@ -116,6 +116,11 @@ def combine():
 
 @io.on('test_img_upload')
 def test(data):
+    if data['data'] == '':
+        data['data'] = imgs['src']
+    else:
+        imgs['src'] = data['data']
+
     # print(data['data'][23:])
     im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
 
