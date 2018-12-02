@@ -44,6 +44,7 @@ function runUpload( file ) {
             // $('imgPrime').el.style.display = 'inline';
 
             //TODO: call socket here
+            // const socket = io();
             socket.emit('test_img_upload', {'data': _file.target.result})
         } // END reader.onload()
     } // END test if file.type === image

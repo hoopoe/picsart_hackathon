@@ -1,5 +1,6 @@
 $(function() {
   const socket = io();
+  
   // const button = document.querySelector('button')
   // const inp = document.querySelector('imgPrime')
   const img = document.querySelector("img");

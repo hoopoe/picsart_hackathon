@@ -15,7 +15,7 @@
     margin: auto;
 }
 
-.imgPrime{ display: none; }
+/*.imgPrime{ display: none; }*/
 
 /*==================================== STYLES ========================================*/
 
@@ -144,7 +144,7 @@ h1 b{
 }
 
 #photo img{
-	opacity:0;
+	/*opacity:0;*/
 }
 
 
