@@ -128,9 +128,15 @@ def combine():
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
     # _, buf = cv2.imencode('.jpg', res)
     # img_as_text = base64.b64encode(buf)
-    print('Called: prepare msg back')
+    print('Called: prepare msg back (respCombine)')
     emit('respCombine', {'data': 'clone_test.jpg'})
-    print('Called: msg send')
+    print('Called: msg send (respCombine)')
+
+    _, buf = cv2.imencode('.jpg', res)
+    img_as_text = base64.b64encode(buf)
+    print('Called: prepare msg back (resp)')
+    emit('resp', {'data': img_as_text})
+    print('Called: msg send (resp)')
 
 @io.on('test_img_upload')
 def test(data):

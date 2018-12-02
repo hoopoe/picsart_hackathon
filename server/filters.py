@@ -28,5 +28,5 @@ def change_back(src, dst, mask, p):
   print('clone_test.jpg - saved')
 
   print(np.array(res))
-  return res#cv2.imread('clone_test.jpg')
+  return im_croped#cv2.imread('clone_test.jpg')
   #return new_im + (dst * np.logical_not(new_mask)[:,:,np.newaxis])
