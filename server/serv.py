@@ -3,7 +3,6 @@ from flask_socketio import SocketIO, emit
 from io import BytesIO
 import base64
 from PIL import Image, ImageDraw
-import cv2
 
 import os
 import argparse

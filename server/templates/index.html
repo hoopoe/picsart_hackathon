@@ -1,33 +1,84 @@
 <html>
     <head>
+        <title>We love Picsart Hackathon | Mask-inspired filters</title>
+
         <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
-        <title>Test</title>
+        <link href="../static/style.css" rel="stylesheet">
+        
         <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../static/draw.js"> </script>
-        <script src="../static/drop.js"> </script>
+        
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io.js') }}"></script>
+        <script type="text/javascript" src="../static/socket.io.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='socket.io-file-client.js') }}"> </script> 
+        <script type="text/javascript" src="../static/socket.io-file-client.js"> </script> 
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery.mousewheel.min.js') }}"> </script> 
+        <script type="text/javascript" src="../static/jquery.mousewheel.min.js"> </script> 
+        
+        <script type="text/javascript" src="{{ url_for('static', filename='draw.js') }}"> </script>
+        <script type="text/javascript" src="../static/draw.js"> </script>
+        <script type="text/javascript" src="{{ url_for('static', filename='drop.js') }}"> </script>
+        <script type="text/javascript" src="../static/drop.js"> </script>
+        <script src="{{ url_for('static', filename='main.js') }}"> </script>
+        <script src="../static/main.js') }}"> </script>
+
+        <script src="../static/caman.full.js"></script>
+        <script src="../static/jquery.mousewheel.min.js"></script>
+        <script src="../static/script.js"></script>
+        <script src="../static/filereader.min.js"></script>
+        
+	    <!-- Include the Yanone Kaffeesatz font -->
+	    <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200" rel="stylesheet" />
+        
         <script>
             function init() {
                 initDrop();
                 initDraw();
             }
         </script>
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
     <body onload=init()>
         <!--<button> send pic </button>-->
         <!--<input type='file' />-->
         <!--<img id='outImage'/>-->
 
-        <script type="text/javascript" src="{{ url_for('static', filename='socket.io.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='socket.io-file-client.js') }}"> </script> 
-        <script src="{{ url_for('static', filename='main.js') }}"> </script>
+        <div class="wrapper">
 
-        <div align="center" id="userActions" class="userActions">
-            <p>Drag &amp; Drop Image</p>
-            <input  type="file" id="fileUpload" />
+            <div id="photo">
+
+                <div align="center" id="userActions" class="userActions">
+                    <p>Drag &amp; Drop Image</p>
+                    <input  type="file" id="fileUpload" />
+                </div>
+    
+                <img align="center" id="imgPrime" style="display: none"/>
+                <canvas id="myCanvas" width="300" height="300"></canvas>
+
+                <a href="#" class="downloadImage" target="_blank" download="photo.png">Download Image</a>
+            </div>
+
+            <div id="filterContainer">
+                <ul id="filters">
+                    <li> <a href="#" id="normal">Normal</a> </li>
+                    <li> <a href="#" id="blur">Blur</a> </li>
+                    <li> <a href="#" id="bricks">Bricks</a> </li>
+                    <li> <a href="#" id="wall">Wall</a> </li>
+                    <li> <a href="#" id="sky">Sky</a> </li>
+                    <li> <a href="#" id="grass">grass</a> </li>
+                </ul>
+            </div>            
+
+            <footer>
+                <h2><a href="https://icons8.com/license">Our backgrounds sponsor</a></h2>
+                <div id="creators">
+                    <p>Proudly presented by Deds team</p>
+                    Thanks to <a id="tzine-download" href="http://tutorialzine.com/2013/02/instagram-filter-app/" title="Download This Example!">
+                        <i>Tutorial:</i> Instagram-like Filters with Query
+                    </a>
+                </div>
+            </footer>
+
         </div>
-        <img align="center" id="imgPrime" style="display: none"/>
-        <canvas id="myCanvas" width="300" height="300"></canvas>
+
     </body>
 </html>
