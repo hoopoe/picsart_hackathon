@@ -15,8 +15,15 @@
   socket.on("resp", data => {
     //console.log(data)
     //console.log(ab2str(data['data']))
-    img.src = "data:image/jpeg;base64," + ab2str(data["data"]);
-    updateImage();
+    var new_image = new Image();
+    var new_image = document.querySelector("imgPrime");
+    new_image.src = "data:image/jpeg;base64," + ab2str(data["data"]);
+
+    var existingimg = document.querySelector("imgPrime");
+    // insert new image and remove old
+    existingimg.parentNode.insertBefore(new_image, existingimg);
+    existingimg.parentNode.removeChild(existingimg);
+
   });
 
   socket.on('respCombine', (data) => {
