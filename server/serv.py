@@ -86,8 +86,11 @@ def render_background():
 imgs = {}
 @io.on('back_img_upload')
 def back_img_acc(data):
-    im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
-    imgs['back'] = im
+    if data['data']:
+        im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
+        imgs['back'] = im
+    elif data['src']:
+        imgs['back'] = cv2.imread('presets/'+data['src'])
 
 @io.on('main_img_upload')
 def main_img_acc(data):
