@@ -3,7 +3,7 @@ $(function() {
   
   // const button = document.querySelector('button')
   // const inp = document.querySelector('imgPrime')
-  const img = document.querySelector("img");
+  const img = document.querySelector("imgPrime");
 
   function ab2str(buf) {
     return String.fromCharCode.apply(null, new Uint8Array(buf));
@@ -16,9 +16,31 @@ $(function() {
     updateImage();
   });
 
-    function back_preset_emit(name) {
-        socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
+  socket.on('respCombine', (data) => {
+    console.log('Message received: respCombine');
+    console.log(data['data']);
+    //console.log(ab2str(data['data']))
+    //img.src="data:image/jpeg;base64,"+ab2str(data['data'])
+    if (data['data']) {
+      var path = 'static/results/' + data['data'];
+      console.log("image to update: " + path);
+
+      var new_image = new Image();
+      //set up the new image
+      new_image.id = "imgPrime";
+      new_image.src = path;
+      // insert new image and remove old
+      img.parentNode.insertBefore(new_image, img);
+      img.parentNode.removeChild(img);
     }
+    else {
+      console.log('failed to get new image');
+    }
+  });
+
+  function back_preset_emit(name) {
+    socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
+  }
 
   // inp.onchange = function (evt) {
   //     var tgt = evt.target || window.event.srcElement,
