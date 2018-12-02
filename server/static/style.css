@@ -245,6 +245,7 @@ h1 b{
 #filters li #grass{	     background-image:url('../static/img/filters/grass.jpg'); }
 #filters li #concrete{	 background-image:url('../static/img/filters/concrete.jpg'); }
 #filters li #white{ 	 background-image:url('../static/img/filters/white.jpg'); }
+#filters li #door{  	 background-image:url('../static/img/filters/door.jpg'); }
 
 /* Custom scrollbars for webkit */
 
