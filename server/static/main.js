@@ -13,16 +13,21 @@
   }
 
   socket.on("resp", data => {
+    console.log('Message received: resp');
     //console.log(data)
     //console.log(ab2str(data['data']))
-    var new_image = new Image();
-    var new_image = document.querySelector("imgPrime");
-    new_image.src = "data:image/jpeg;base64," + ab2str(data["data"]);
+    if (data['data']) {
+      var new_image = new Image();
+      new_image.src = "data:image/jpeg;base64," + ab2str(data["data"]);
 
-    var existingimg = document.querySelector("imgPrime");
-    // insert new image and remove old
-    existingimg.parentNode.insertBefore(new_image, existingimg);
-    existingimg.parentNode.removeChild(existingimg);
+      var existingimg = document.querySelector("#imgPrime");
+      // insert new image and remove old
+      existingimg.parentNode.insertBefore(new_image, existingimg);
+      existingimg.parentNode.removeChild(existingimg);
+    }
+    else {
+      console.log('failed to get new image');
+    }
 
   });
 
@@ -39,9 +44,11 @@
       //set up the new image
       new_image.id = "imgPrime";
       new_image.src = path;
+
+      var existingimg = document.querySelector("#imgPrime");
       // insert new image and remove old
-      img.parentNode.insertBefore(new_image, img);
-      img.parentNode.removeChild(img);
+      existingimg.parentNode.insertBefore(new_image, existingimg);
+      existingimg.parentNode.removeChild(existingimg);
     }
     else {
       console.log('failed to get new image');
@@ -51,6 +58,11 @@
   function back_preset_emit(name) {
     console.log('Filter called: ' + name);
     socket.emit('back_img_upload', {'data': '', 'src':name+'.jpg'})
+  }
+
+  function back_blur_emit() {
+    console.log('Filter called: blur');
+    socket.emit('test_img_upload', {'data': ''})
   }
 
   // inp.onchange = function (evt) {
