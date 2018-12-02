@@ -136,7 +136,10 @@ if __name__ == '__main__':
     arg('--model_type', type=str, default='UNet1024', help='network architecture', choices=['UNet1024'])
     arg('--input_image', type=str, help='input image', default='test.jpg') #320x240
     arg('--port', type=str, default='8081')
+    arg('--preset', type=str, default='')
     args = parser.parse_args()
+    if args.preset:
+        imgs['back'] = cv2.imread('presets/'+args.preset)
 
     fold = 0
     model = get_model(str(Path(args.model_path).joinpath('model_{fold}.pt'.format(fold=fold))), model_type=args.model_type)
