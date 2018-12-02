@@ -86,11 +86,16 @@ def render_background():
 imgs = {}
 @io.on('back_img_upload')
 def back_img_acc(data):
+    print('Called: back_img_upload')
     if data['data']:
+        print('back_img_upload - input data used')
         im = cv2.cvtColor(imread(BytesIO(base64.b64decode(data['data'][23:]))), cv2.COLOR_RGB2BGR)
         imgs['back'] = im
     elif data['src']:
+        print('back_img_upload - preset used')
         imgs['back'] = cv2.imread('presets/'+data['src'])
+    print('back_img_upload - force combine')
+    combine()
 
 @io.on('main_img_upload')
 def main_img_acc(data):
@@ -108,17 +113,23 @@ def main_img_acc(data):
 @io.on('combine')
 def combine():
     p = (300, 300)
+    print('Called: combine')
 
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
     # _, buf = cv2.imencode('.jpg', res)
     # img_as_text = base64.b64encode(buf)
+    print('Called: prepare msg back')
     emit('respCombine', {'data': 'clone_test.jpg'})
+    print('Called: msg send')
 
 @io.on('test_img_upload')
 def test(data):
+    print('Called: test_img_upload')
     if data['data'] == '':
+        print('Blur: existing server image used')
         data['data'] = imgs['src']
     else:
+        print('Blur: client image used')
         imgs['src'] = data['data']
 
     # print(data['data'][23:])
