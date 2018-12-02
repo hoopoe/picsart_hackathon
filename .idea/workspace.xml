@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="05d03ab8-01f6-40e7-8b3a-02614239cb98" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/serv.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/serv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/static/back.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/static/back.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/templates/back.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/templates/back.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="serv.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serv.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/serv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="92" column="42" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
+            <state relative-caret-position="159">
+              <caret line="86" column="25" lean-forward="true" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
               <folding>
                 <element signature="e#0#61#0" expanded="true" />
               </folding>
@@ -36,27 +37,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="filters.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/filters.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/-1895723948/cv2/cv2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-47">
-              <caret line="9471" column="4" selection-start-line="9471" selection-start-column="4" selection-end-line="9471" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="smart_resize.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/smart_resize.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,16 +46,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clone_test.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/static/results/clone_test.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+            <state relative-caret-position="293">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              <folding>
+                <element signature="e#2404#2409#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="back.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/templates/back.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="draw.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/static/draw.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="caman.full.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/static/caman.full.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -92,8 +94,8 @@
       <file leaf-file-name="back.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/static/back.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="558">
+              <caret line="71" column="67" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -121,12 +123,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/server/static/main.js" />
         <option value="$PROJECT_DIR$/server/smart_resize.py" />
-        <option value="$PROJECT_DIR$/server/templates/back.html" />
         <option value="$PROJECT_DIR$/server/static/style.css" />
-        <option value="$PROJECT_DIR$/server/templates/index.html" />
-        <option value="$PROJECT_DIR$/server/static/back.js" />
         <option value="$PROJECT_DIR$/server/filters.py" />
         <option value="$PROJECT_DIR$/server/serv.py" />
+        <option value="$PROJECT_DIR$/server/templates/index.html" />
+        <option value="$PROJECT_DIR$/server/static/caman.full.js" />
+        <option value="$PROJECT_DIR$/server/static/back.js" />
+        <option value="$PROJECT_DIR$/server/templates/back.html" />
       </list>
     </option>
   </component>
@@ -159,7 +162,20 @@
               <item name="picsart_hackathon" type="b2602c69:ProjectViewProjectNode" />
               <item name="picsart_hackathon" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="presets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picsart_hackathon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picsart_hackathon" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picsart_hackathon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picsart_hackathon" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picsart_hackathon" type="b2602c69:ProjectViewProjectNode" />
@@ -360,26 +376,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/static/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="52" selection-start-column="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/-1895723948/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-992">
-          <caret line="7212" column="4" selection-start-line="7212" selection-start-column="4" selection-end-line="7212" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -543,13 +539,6 @@
     <entry file="file://$PROJECT_DIR$/server/mask_change_test.png" />
     <entry file="file://$PROJECT_DIR$/server/main_test_img.jpg" />
     <entry file="file://$PROJECT_DIR$/server/back_tst.jpg" />
-    <entry file="file://$PROJECT_DIR$/server/templates/back.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/homecoming.jpg" />
     <entry file="file://$PROJECT_DIR$/server/static/style.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -558,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/server/mask.png" />
-    <entry file="file://$PROJECT_DIR$/server/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/static/clone_test.jpg" />
     <entry file="file://$PROJECT_DIR$/server/static/main.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -599,13 +581,6 @@
     <entry file="file://$PROJECT_DIR$/server/static/filereader.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/static/back.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/smart_resize.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -615,11 +590,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/serv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="92" column="42" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
+        <state relative-caret-position="159">
+          <caret line="86" column="25" lean-forward="true" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/drop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/results/clone_test.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/draw.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/caman.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/back.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="71" column="67" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="e#2404#2409#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/templates/back.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
         </state>
       </provider>
     </entry>
