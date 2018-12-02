@@ -115,6 +115,15 @@ def combine():
     p = (300, 300)
     print('Called: combine')
 
+    if imgs['mask'] == '':
+      print('Combine: no mask exists')
+      im = imgs['src']
+      res = predict(model, im, img_transform=img_transform(p=1))
+      mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
+      # mask = (mask * 255).astype(np.uint8)
+      mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+      imgs['mask'] = mask
+
     res = change_back(imgs['src'], imgs['back'], imgs['mask'], p)
     # _, buf = cv2.imencode('.jpg', res)
     # img_as_text = base64.b64encode(buf)
@@ -141,6 +150,7 @@ def test(data):
     mask = (F.sigmoid(res[0, 0]).data.cpu().numpy())
     # mask = (mask * 255).astype(np.uint8)
     mask = mask[0:0 + IMG_HEIGHT, CROP_WIDTH: IMG_WIDTH - CROP_WIDTH]
+    
     filtered = blur_background(im, mask) #todo: return
     _, buf = cv2.imencode('.jpg', filtered)
     img_as_text = base64.b64encode(buf)
