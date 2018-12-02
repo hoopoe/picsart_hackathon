@@ -126,15 +126,16 @@ h1 b{
 	position: absolute;
 	width: 100%;
 	letter-spacing: 1px;
+	padding-top: 20px;
 }
 
 #photo canvas{
 	text-align:center;
 	display:inline-block;
 	border-radius: 15px;
-	border:8px solid rgba(0,0,0,0.1);
+	border:8px solid rgba(0,0,0,0.25);
 	box-sizing: border-box;
-	position:absolute;
+	/*position:absolute;*/
 	z-index:5;
 	top:50%;
 	left: 50%;
@@ -152,16 +153,16 @@ h1 b{
 
 
 #filterContainer{
-	width: 650px;
+	width: 720px;
 	margin: 50px auto 90px;
 	position: relative;
-	display:none;
+	/*display:none;*/
 }
 
 #filterContainer:before{
 	content: '';
 	width: 20px;
-	box-shadow: 15px 0 10px #111;
+	box-shadow: 15px 0 10px #11111111;
 	position: absolute;
 	top: 0;
 	left: -22px;
@@ -172,7 +173,7 @@ h1 b{
 #filterContainer:after{
 	content: '';
 	width: 20px;
-	box-shadow: -15px 0 10px #111;
+	box-shadow: -15px 0 10px #15px 0 10px #11111111;
 	position: absolute;
 	top: 0;
 	right: -22px;
@@ -183,7 +184,7 @@ h1 b{
 #filters{
 	padding: 20px 20px 30px;
 	border-radius: 8px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.25);
 	overflow: hidden;
 	list-style: none;
 	white-space: nowrap;
@@ -234,27 +235,12 @@ h1 b{
 
 /* The filters */
 
-#filters li #normal{		background-image:url('../img/filters/normal.jpg'); }
-#filters li #blur{		background-image:url('../img/filters/vintage.jpg'); }
-#filters li #bricks{			background-image:url('../img/filters/lomo.jpg'); }
-#filters li #wall{		background-image:url('../img/filters/clarity.jpg'); }
-#filters li #sky{		background-image:url('../img/filters/sinCity.jpg'); }
-#filters li #grass{		background-image:url('../img/filters/sunrise.jpg'); }
-/*
-#filters li #crossProcess{	background-image:url('../img/filters/crossProcess.jpg'); }
-#filters li #orangePeel{	background-image:url('../img/filters/orangePeel.jpg'); }
-#filters li #love{			background-image:url('../img/filters/love.jpg'); }
-#filters li #grungy{		background-image:url('../img/filters/grungy.jpg'); }
-#filters li #jarques{		background-image:url('../img/filters/jarques.jpg'); }
-#filters li #pinhole{		background-image:url('../img/filters/pinhole.jpg'); }
-#filters li #oldBoot{		background-image:url('../img/filters/oldBoot.jpg'); }
-#filters li #glowingSun{	background-image:url('../img/filters/glowingSun.jpg'); }
-#filters li #hazyDays{		background-image:url('../img/filters/hazyDays.jpg'); }
-#filters li #herMajesty{	background-image:url('../img/filters/herMajesty.jpg'); }
-#filters li #nostalgia{		background-image:url('../img/filters/nostalgia.jpg'); }
-#filters li #hemingway{		background-image:url('../img/filters/hemingway.jpg'); }
-#filters li #concentrate{	background-image:url('../img/filters/concentrate.jpg'); }
-*/
+#filters li #normal{ background-image:url('../static/img/filters/normal.jpg'); }
+#filters li #blur{	 background-image:url('../static/img/filters/blur.jpg'); }
+#filters li #bricks{ background-image:url('../static/img/filters/bricks.jpg'); }
+#filters li #wall{	 background-image:url('../static/img/filters/wall.jpg'); }
+#filters li #sky{	 background-image:url('../static/img/filters/sky.jpg'); }
+#filters li #grass{	 background-image:url('../static/img/filters/grass.jpg'); }
 
 /* Custom scrollbars for webkit */
 
