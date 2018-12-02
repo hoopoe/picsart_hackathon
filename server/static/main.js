@@ -18,6 +18,7 @@
     //console.log(ab2str(data['data']))
     if (data['data']) {
       var new_image = new Image();
+      new_image.id = "imgPrime";
       new_image.src = "data:image/jpeg;base64," + ab2str(data["data"]);
 
       var existingimg = document.querySelector("#imgPrime");
