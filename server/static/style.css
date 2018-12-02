@@ -175,7 +175,7 @@ h1 b{
 #filterContainer:after{
 	content: '';
 	width: 20px;
-	box-shadow: -15px 0 10px #15px 0 10px #11111111;
+	box-shadow: -15px 0 10px #11111111;
 	position: absolute;
 	top: 0;
 	right: -22px;
